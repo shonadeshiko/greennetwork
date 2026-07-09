@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIKKEN Green Initiative ライブラリ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F6F3EA;
+    --paper-deep: #EFEADB;
+    --ink: #262420;
+    --ink-soft: #5B564C;
+    --moss: #43552F;
+    --moss-deep: #2E3B20;
+    --moss-tint: #E2E6D4;
+    --clay: #A9723F;
+    --line: #CFC7AE;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans JP", sans-serif;
+    font-weight:300;
+    line-height:1.8;
+  }
+
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    padding:72px 0 40px;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    color:var(--moss);
+    font-weight:500;
+    margin:0 0 18px;
+  }
+  h1{
+    font-family:"Shippori Mincho", serif;
+    font-weight:700;
+    font-size:clamp(30px, 5vw, 46px);
+    line-height:1.35;
+    margin:0 0 18px;
+    color:var(--moss-deep);
+  }
+  h1 span{
+    display:inline;
+    font-size:.42em;
+    font-weight:500;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin-left:14px;
+    white-space:nowrap;
+  }
+  .lede{
+    font-size:15.5px;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin:0;
+  }
+
+  /* ruler motif — a nod to 「ものさし」, measuring green value */
+  .ruler{
+    margin-top:36px;
+    height:26px;
+    display:flex;
+    align-items:flex-end;
+  }
+  .ruler svg{ width:100%; height:100%; display:block; }
+
+  /* ---------- Cards ---------- */
+  main{ padding-bottom:64px; }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));
+    gap:28px;
+  }
+
+  .card{
+    background:#FFFEFA;
+    border:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .card:hover{
+    border-color:var(--moss);
+    transform:translateY(-2px);
+  }
+
+  .thumb{
+    aspect-ratio:3/4;
+    background:var(--paper-deep);
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .card-body{
+    padding:22px 22px 24px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+
+  .tag{
+    align-self:flex-start;
+    font-size:11px;
+    letter-spacing:.06em;
+    color:var(--moss-deep);
+    background:var(--moss-tint);
+    padding:4px 10px;
+    margin-bottom:14px;
+  }
+  .tag.en{ color:#7A4E24; background:#EFE3D3; }
+
+  .card h2{
+    font-family:"Shippori Mincho", serif;
+    font-weight:600;
+    font-size:18px;
+    line-height:1.5;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+
+  .card p{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin:0 0 20px;
+    flex:1;
+  }
+
+  .card a.read{
+    font-size:13px;
+    color:var(--moss-deep);
+    text-decoration:none;
+    font-weight:500;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:gap .2s ease;
+  }
+  .card a.read::after{
+    content:"→";
+    transition:transform .2s ease;
+  }
+  .card a.read:hover::after{
+    transform:translateX(4px);
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:24px 0 60px;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  footer a{ color:var(--moss-deep); }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 560px){
+    header{ padding:48px 0 32px; }
+    h1{
+      font-size:clamp(24px, 7vw, 32px);
+    }
+    h1 span{
+      display:block;
+      margin-left:0;
+      margin-top:8px;
+      white-space:normal;
+    }
+    .grid{ gap:20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">NIKKEN SEKKEI ／ GREEN &amp; NATURE-POSITIVE PUBLICATIONS</p>
+    <h1>グリーンイニシアチブ資料室<span>Nikken Green Initiative Library</span></h1>
+    <p class="lede">日建設計が公開している、緑・自然資本にまつわる電子ブック3点をまとめました。それぞれ表紙をクリックすると閲覧ページが開きます。</p>
+
+    <div class="ruler" aria-hidden="true">
+      <svg viewBox="0 0 800 26" preserveAspectRatio="none">
+        <line x1="0" y1="25" x2="800" y2="25" stroke="#43552F" stroke-width="1.5"/>
+        <g stroke="#43552F" stroke-width="1.5">
+          <!-- major ticks -->
+          <line x1="0"   y1="6"  x2="0"   y2="25"/>
+          <line x1="80"  y1="10" x2="80"  y2="25"/>
+          <line x1="160" y1="6"  x2="160" y2="25"/>
+          <line x1="240" y1="10" x2="240" y2="25"/>
+          <line x1="320" y1="6"  x2="320" y2="25"/>
+          <line x1="400" y1="10" x2="400" y2="25"/>
+          <line x1="480" y1="6"  x2="480" y2="25"/>
+          <line x1="560" y1="10" x2="560" y2="25"/>
+          <line x1="640" y1="6"  x2="640" y2="25"/>
+          <line x1="720" y1="10" x2="720" y2="25"/>
+          <line x1="800" y1="6"  x2="800" y2="25"/>
+        </g>
+        <g stroke="#43552F" stroke-width="1" opacity=".55">
+          <!-- minor ticks -->
+          <line x1="40"  y1="16" x2="40"  y2="25"/>
+          <line x1="120" y1="16" x2="120" y2="25"/>
+          <line x1="200" y1="16" x2="200" y2="25"/>
+          <line x1="280" y1="16" x2="280" y2="25"/>
+          <line x1="360" y1="16" x2="360" y2="25"/>
+          <line x1="440" y1="16" x2="440" y2="25"/>
+          <line x1="520" y1="16" x2="520" y2="25"/>
+          <line x1="600" y1="16" x2="600" y2="25"/>
+          <line x1="680" y1="16" x2="680" y2="25"/>
+          <line x1="760" y1="16" x2="760" y2="25"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <!-- 1: JA -->
+      <a class="card" href="https://www.nikken.jp/ja/dbook/nikken_green_initiative_ja/index.html#page=1" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <div class="thumb">
+          <img src="https://www.nikken.jp/ja/dbook/nikken_green_initiative_ja/thumbnail.jpg" alt="NIKKEN GREEN INITIATIVE 日本語版 表紙" loading="lazy" referrerpolicy="no-referrer">
+        </div>
+        <div class="card-body">
+          <span class="tag">日本語版 ・ 全88ページ</span>
+          <h2>NIKKEN GREEN INITIATIVE</h2>
+          <p>日建設計グループが掲げる「緑」を軸にしたサステナビリティ戦略と取り組みを紹介する電子ブック。</p>
+          <span class="read">資料を見る</span>
+        </div>
+      </a>
+
+      <!-- 2: EN -->
+      <a class="card" href="https://www.nikken.jp/ja/dbook/nikken_green_initiative_en/index.html#page=1" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <div class="thumb">
+          <img src="https://www.nikken.jp/ja/dbook/nikken_green_initiative_en/thumbnail.jpg" alt="NIKKEN GREEN INITIATIVE English edition cover" loading="lazy" referrerpolicy="no-referrer">
+        </div>
+        <div class="card-body">
+          <span class="tag en">English ・ 88 pages</span>
+          <h2>NIKKEN GREEN INITIATIVE</h2>
+          <p>English-language edition introducing Nikken Sekkei Group's green-focused sustainability strategy and initiatives.</p>
+          <span class="read">View publication</span>
+        </div>
+      </a>
+
+      <!-- 3: Monosashi -->
+      <a class="card" href="https://www.nikken.jp/ja/dbook/midori_no_monosashi/index.html#page=1" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <div class="thumb">
+          <img src="https://www.nikken.jp/ja/dbook/midori_no_monosashi/thumbnail.jpg" alt="みどりのものさし 表紙" loading="lazy" referrerpolicy="no-referrer">
+        </div>
+        <div class="card-body">
+          <span class="tag">日本語版 ・ 全23ページ</span>
+          <h2>みどりのものさし</h2>
+          <p>緑がもたらす環境価値を定量的に評価・可視化する手法を紹介する冊子。</p>
+          <span class="read">資料を見る</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    掲載データはすべて <a href="https://www.nikken.jp" target="_blank" rel="noopener">日建設計</a> が公開する電子ブックへのリンクです。本ページはその紹介用にまとめた個人資料です。
+  </footer>
+</div>
+
+</body>
+</html>
